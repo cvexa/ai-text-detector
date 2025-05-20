@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "b5e7b3d0-5f1a-4b2c-8e1d-9b8f2f2c0f1d",
+		"name": "AI Text Detector",
+		"description": "API endpoints for detecting AI-generated text",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Analyze Text",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"The artificial intelligence revolution has transformed the way we live and work. Machine learning algorithms now power everything from our smartphone applications to complex industrial systems. These systems can process vast amounts of data in seconds, identifying patterns and making predictions with remarkable accuracy. As we continue to advance in this field, the line between human-generated and AI-generated content becomes increasingly blurred, raising important questions about authenticity and creativity in the digital age.\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/text-analysis/analyze",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"text-analysis",
+						"analyze"
+					]
+				},
+				"description": "Analyzes the provided text to determine the probability of it being AI-generated."
+			},
+			"response": [
+				{
+					"name": "Successful Analysis",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"The artificial intelligence revolution has transformed the way we live and work.\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/text-analysis/analyze",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"text-analysis",
+								"analyze"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"body": "{\n    \"aiProbability\": 0.75,\n    \"confidence\": 0.85,\n    \"features\": {\n        \"repetitivePatterns\": 0.6,\n        \"complexityScore\": 0.8,\n        \"naturalityScore\": 0.7\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Analyze Natural Text Example",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"Hey! I just wanted to share my thoughts about the movie I watched yesterday. It was amazing! The characters felt so real, and the plot had me on the edge of my seat. There were some unexpected twists that really surprised me. The acting was fantastic, especially the lead actress. I can't stop thinking about that ending - definitely not what I expected!\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/text-analysis/analyze",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"text-analysis",
+						"analyze"
+					]
+				},
+				"description": "Example of analyzing more natural, conversational text."
+			}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string",
+			"description": "Local development server"
+		},
+		{
+			"key": "productionUrl",
+			"value": "https://nest-api.onrender.com",
+			"type": "string",
+			"description": "Production server on Render"
+		}
+	]
+} 
